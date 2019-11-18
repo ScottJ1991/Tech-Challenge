@@ -40,7 +40,7 @@ class Report1 extends Component {
                 <form>
                     <div>
                         <label htmlFor="attendeeID">User ID:</label>
-                        <input id="attendeeID" type="text"/> 
+                        <input onChange={e => this.setState({userID: e.target.value})}id="attendeeID" type="text"/> 
                     </div>
                     <label>Fitler options</label>  
                     <div>
@@ -51,7 +51,7 @@ class Report1 extends Component {
                         <label htmlFor="enddate">End date:</label>
                         <input id="enddate" type="date"/> 
                     </div>
-                    <button>Serach</button>
+                    <button onClick={}>Serach</button>
                 </form>
                 
                 {data.map((person, i)=>(
