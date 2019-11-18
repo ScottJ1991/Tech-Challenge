@@ -1,14 +1,19 @@
 import React, { Component } from 'react';
 //import axios from 'axios';
 
-import List from './List';
-
-const data = [{"name":"test 1", "age":"12"},{"name":"test 2", "age":"16"}];
 //39 showing customs childern could be use
+//import List from './List';
+
+/*const data = [{"name":"test 1", "age":"12"},{"name":"test 2", "age":"16"}];
+{data.map((person, i) => (
+    <List Person={person} key={i}/>
+))}*/
 
 class Report1 extends Component {
     state = {
-        userID: '',
+        attendeeID: "",
+        startdate: "",
+        enddate: "",
         posts: []
     }
 
@@ -22,41 +27,41 @@ class Report1 extends Component {
             })
     }*/
 
+    handleChange = (e) => {
+        this.setState({
+            [e.target.id]: e.target.value
+        })
+    }
+
+    handleSubmit = (e) => {
+        e.preventDefault();
+        if(this.state.attendeeID.length <= 0){
+            console.log('ERROR');
+        }
+        else{
+            console.log(this.state);
+        }
+    }
+
     render () {
-        /*const { posts } = this.state
-        const postList = post.lenght ? (
-            return(
-                posts.map(post => {
-                    <div key={psot.event}>event</div>
-                })
-            )
-        ) : (
-            retrun(
-                <div>Loading...</div>
-            )
-        )*/
         return(
             <div>
-                <form>
+                <form onSubmit={this.handleSubmit}>
                     <div>
                         <label htmlFor="attendeeID">User ID:</label>
-                        <input onChange={e => this.setState({userID: e.target.value})}id="attendeeID" type="text"/> 
+                        <input onChange={this.handleChange} id="attendeeID" type="text"/> 
                     </div>
-                    <label>Fitler options</label>  
+                    <label>Filter options</label>  
                     <div>
                         <label htmlFor="startdate">Start date:</label>        
-                        <input id="startdate" type="date"/>
+                        <input onChange={this.handleChange} id="startdate" type="date"/>
                     </div>
                     <div>
                         <label htmlFor="enddate">End date:</label>
-                        <input id="enddate" type="date"/> 
+                        <input onChange={this.handleChange} id="enddate" type="date"/> 
                     </div>
-                    <button onClick={}>Serach</button>
+                    <button>Serach</button>
                 </form>
-                
-                {data.map((person, i)=>(
-                    <List Person={person} key={i}/>
-                ))}
             </div>
         )
     }
