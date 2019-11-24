@@ -1,0 +1,14 @@
+{
+    "request": {
+        "method": "GET",
+        "url": "/events?2"
+    },
+	"response": {
+		"status": 500,
+		"headers":{
+			"Content-Type" : "application/json",
+			"Access-Control-Allow-Origin" : "*"
+		},
+		"jsonBody": { "reason":"An unexpected error occurred"}
+    }
+}

@@ -1,0 +1,14 @@
+{
+    "request": {
+        "method": "GET",
+        "url": "/users/0/events"
+    },
+	"response": {
+		"status": 400,
+		"headers":{
+			"Content-Type" : "application/json",
+			"Access-Control-Allow-Origin" : "*"
+		},
+		"jsonBody": { "reason":"userId is invaild"}
+    }
+}

@@ -1,0 +1,14 @@
+{
+    "request": {
+        "method": "GET",
+        "url": "/events/0/attdendess"
+    },
+	"response": {
+		"status": 400,
+		"headers":{
+			"Content-Type" : "application/json",
+			"Access-Control-Allow-Origin" : "*"
+		},
+		"jsonBody": { "reason":"eventId is invaild"}
+    }
+}

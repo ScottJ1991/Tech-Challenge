@@ -1,0 +1,27 @@
+{
+    "request": {
+        "method": "GET",
+        "url": "/events/1/attdendess"
+    },
+	"response": {
+		"status": 200,
+		"headers":{
+			"Content-Type" : "application/json",
+			"Access-Control-Allow-Origin" : "*"
+		},
+		"jsonBody":[
+			{
+				"id": 0,
+				"forename": "John",
+				"surename": "Doe",
+				"email": "john.doe@capgemini.com"
+			},
+			{
+				"id": 1,
+				"forename": "John",
+				"surename": "Doe",
+				"email": "john.doe@capgemini.com"
+			}
+		] 
+	}
+}
