@@ -17,7 +17,7 @@
 				"organiser": {
 					"id": 0,
 					"forename": "John",
-					"surename": "Doe",
+					"surname": "Doe",
 					"email": "john.doe@capgemini.com"
 			},
 				"startTime": "2001-12-01T00:00:000Z",
@@ -29,7 +29,7 @@
 				"organiser": {
 					"id": 0,
 					"forename": "John",
-					"surename": "Doe",
+					"surname": "Doe",
 					"email": "john.doe@capgemini.com"
 				},
 				"startTime": "2001-12-01T00:00:000Z",

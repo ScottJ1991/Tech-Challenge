@@ -13,13 +13,13 @@
 			{
 				"id": 0,
 				"forename": "John",
-				"surename": "Doe",
+				"surname": "Doe",
 				"email": "john.doe@capgemini.com"
 			},
 			{
 				"id": 1,
 				"forename": "John",
-				"surename": "Doe",
+				"surname": "Doe",
 				"email": "john.doe@capgemini.com"
 			}
 		] 
