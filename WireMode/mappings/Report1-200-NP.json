@@ -1,7 +1,7 @@
 {
     "request": {
         "method": "GET",
-        "url": "/events?organiserId=1"
+        "url": "/users/1/events"
     },
 	"response": {
 		"status": 200,

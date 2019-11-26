@@ -1,7 +1,7 @@
 {
     "request": {
         "method": "GET",
-        "url": "/events?organiserId=1"
+        "url": "/users/1/events?from=2019-11-29"
     },
 	"response": {
 		"status": 200,
@@ -12,19 +12,6 @@
 		"jsonBody": [
 			{
 				"id": 0,
-				"title": "Example Event Title",
-				"description": "I am an example event description",
-				"organiser": {
-					"id": 0,
-					"forename": "John",
-					"surname": "Doe",
-					"email": "john.doe@capgemini.com"
-				},
-				"startTime": "2001-12-01T00:00:000Z",
-				"endTime": "2001-12-01T00:00:000Z"
-			},
-			{
-				"id": 1,
 				"title": "Example Event Title",
 				"description": "I am an example event description",
 				"organiser": {
