@@ -19,10 +19,35 @@ class Report1 extends Component {
   };
 
   handleSubmit = e => {
+    let wholeUrl = "";
     e.preventDefault();
-
+    this.setState({ events: [] });
     //https://www.youtube.com/watch?v=4uzEUATtNHQ&list=PL4cUxeGkcC9ij8CfkAY2RAGb-tmkNwQHG&index=30&t=0s
-    axios.get(baseUrl + "/users/" + this.state.userId + "/events").then(res => {
+
+    if (this.state.from !== "" && this.state.to !== "") {
+      wholeUrl =
+        baseUrl +
+        "/users/" +
+        this.state.userId +
+        "/events?from=" +
+        this.state.from +
+        "&to=" +
+        this.state.to;
+    } else if (this.state.from !== "") {
+      wholeUrl =
+        baseUrl +
+        "/users/" +
+        this.state.userId +
+        "/events?from=" +
+        this.state.from;
+    } else if (this.state.to !== "") {
+      wholeUrl =
+        baseUrl + "/users/" + this.state.userId + "/events?to=" + this.state.to;
+    } else {
+      wholeUrl = baseUrl + "/users/" + this.state.userId + "/events";
+    }
+
+    axios.get(wholeUrl).then(res => {
       if (res.status === 400) {
         //console.log(res);
       } else if (res.status === 500) {
@@ -33,6 +58,8 @@ class Report1 extends Component {
         //console.log(this.state);
       }
     });
+
+    //this.setState({from: "", to: ""});
   };
 
   render() {

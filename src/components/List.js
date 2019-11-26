@@ -2,10 +2,6 @@ import React from "react";
 import { Col, Row } from "react-bootstrap";
 
 const List = props => {
-  //console.log({props});
-  //const Organiser = props.Event.organiser;
-  //console.log(Organiser);
-  //console.log(props.Event.organiser.forename);
   return (
     <Row>
       <Col sm={2}>Event ID: {props.Event.id}</Col>

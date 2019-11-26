@@ -18,11 +18,13 @@ class Report2 extends Component {
   handleSubmit = e => {
     e.preventDefault();
 
-    axios.get(baseUrl + "/events?" + this.state.userId).then(res => {
-      //console.log(res);
-      this.setState({ events: res.data });
-      //console.log(this.state);
-    });
+    axios
+      .get(baseUrl + "/events?organiserId=" + this.state.userId)
+      .then(res => {
+        //console.log(res);
+        this.setState({ events: res.data });
+        //console.log(this.state);
+      });
   };
 
   render() {
