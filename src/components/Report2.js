@@ -21,9 +21,17 @@ class Report2 extends Component {
     axios
       .get(baseUrl + "/events?organiserId=" + this.state.userId)
       .then(res => {
-        //console.log(res);
         this.setState({ events: res.data });
-        //console.log(this.state);
+      })
+      .catch(error => {
+        //console.log(error);
+        //console.log(error.response.data)
+        if (typeof error.response !== "undefined") {
+          if (error.response.status === 400 || error.response.status === 500) {
+            //this.setState({ events: error.response.data.reason })
+            console.log(error.response.data.reason);
+          }
+        }
       });
   };
 

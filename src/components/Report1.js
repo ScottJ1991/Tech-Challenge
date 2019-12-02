@@ -2,9 +2,11 @@ import React, { Component } from "react";
 import axios from "axios";
 import { Form, Button, Col, Row, Card, ListGroup } from "react-bootstrap";
 
-//39 showing customs childern could be use
 import List from "./List";
 import { baseUrl } from "./staticVar";
+
+var dateStartTime = "T00:00:00.000Z";
+var endStartTime = "T24:00:00.000Z";
 
 class Report1 extends Component {
   state = {
@@ -31,35 +33,45 @@ class Report1 extends Component {
         this.state.userId +
         "/events?from=" +
         this.state.from +
+        dateStartTime +
         "&to=" +
-        this.state.to;
+        this.state.to +
+        endStartTime;
     } else if (this.state.from !== "") {
       wholeUrl =
         baseUrl +
         "/users/" +
         this.state.userId +
         "/events?from=" +
-        this.state.from;
+        this.state.from +
+        dateStartTime;
     } else if (this.state.to !== "") {
       wholeUrl =
-        baseUrl + "/users/" + this.state.userId + "/events?to=" + this.state.to;
+        baseUrl +
+        "/users/" +
+        this.state.userId +
+        "/events?to=" +
+        this.state.to +
+        endStartTime;
     } else {
       wholeUrl = baseUrl + "/users/" + this.state.userId + "/events";
     }
 
-    axios.get(wholeUrl).then(res => {
-      if (res.status === 400) {
-        //console.log(res);
-      } else if (res.status === 500) {
-        console.log(res);
-      } else if (res.status === 200) {
-        //console.log(res);
+    axios
+      .get(wholeUrl)
+      .then(res => {
         this.setState({ events: res.data });
-        //console.log(this.state);
-      }
-    });
-
-    //this.setState({from: "", to: ""});
+      })
+      .catch(error => {
+        //console.log(error);
+        //console.log(error.response.data)
+        if (typeof error.response !== "undefined") {
+          if (error.response.status === 400 || error.response.status === 500) {
+            //this.setState({ events: error.response.data.reason })
+            console.log(error.response.data.reason);
+          }
+        }
+      });
   };
 
   render() {

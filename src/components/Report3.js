@@ -6,7 +6,6 @@ import Attendee from "./attendee";
 import { baseUrl } from "./staticVar";
 
 class Report3 extends Component {
-  // /events/{eventId}/attendees
   state = {
     eventID: "",
     event: []
@@ -20,11 +19,19 @@ class Report3 extends Component {
     e.preventDefault();
 
     axios
-      .get(baseUrl + "/events/" + this.state.eventID + "/attdendess")
+      .get(baseUrl + "/events/" + this.state.eventID + "/attendees")
       .then(res => {
-        //console.log(res);
         this.setState({ event: res.data });
-        //console.log(this.state);
+      })
+      .catch(error => {
+        //console.log(error);
+        //console.log(error.response.data)
+        if (typeof error.response !== "undefined") {
+          if (error.response.status === 400 || error.response.status === 500) {
+            //this.setState({ events: error.response.data.reason })
+            console.log(error.response.data.reason);
+          }
+        }
       });
   };
 
