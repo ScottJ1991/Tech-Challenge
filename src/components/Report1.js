@@ -5,9 +5,6 @@ import { Form, Button, Col, Row, Card, ListGroup } from "react-bootstrap";
 import List from "./List";
 import { baseUrl } from "./staticVar";
 
-var dateStartTime = "T00:00:00.000Z";
-var endStartTime = "T24:00:00.000Z";
-
 class Report1 extends Component {
   state = {
     userId: "",
@@ -33,26 +30,22 @@ class Report1 extends Component {
         this.state.userId +
         "/events?from=" +
         this.state.from +
-        dateStartTime +
         "&to=" +
-        this.state.to +
-        endStartTime;
+        this.state.to; 
     } else if (this.state.from !== "") {
       wholeUrl =
         baseUrl +
         "/users/" +
         this.state.userId +
         "/events?from=" +
-        this.state.from +
-        dateStartTime;
+        this.state.from;
     } else if (this.state.to !== "") {
       wholeUrl =
         baseUrl +
         "/users/" +
         this.state.userId +
         "/events?to=" +
-        this.state.to +
-        endStartTime;
+        this.state.to;
     } else {
       wholeUrl = baseUrl + "/users/" + this.state.userId + "/events";
     }
