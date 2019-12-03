@@ -16,7 +16,7 @@
 		"Title":"What is Agile all about?",
 		"Subject":"#agile",
 		"Level":"Beginner",
-		"Attendees":"8",
+		"Attendees":8,
 		"Host":"Tim Simpson"
 	},
 	{
@@ -25,7 +25,7 @@
 		"Title":"Scrum Overview",
 		"Subject":"#agile",
 		"Level":"Beginner",
-		"Attendees":"15",
+		"Attendees":15,
 		"Host":"Tim Simpson"
 	},
 	{
@@ -34,7 +34,7 @@
 		"Title":"Agile Requirements",
 		"Subject":"#agile",
 		"Level":"Beginner",
-		"Attendees":"11",
+		"Attendees":11,
 		"Host":"Tim Simpson"
 	},
 	{
@@ -43,7 +43,7 @@
 		"Title":"Agile Planning",
 		"Subject":"#agile",
 		"Level":"Beginner",
-		"Attendees":"15",
+		"Attendees":15,
 		"Host":"Rob Wood"
 	},
 	{
@@ -52,7 +52,7 @@
 		"Title":"Agile Estimation",
 		"Subject":"#agile",
 		"Level":"Beginner",
-		"Attendees":"15",
+		"Attendees":15,
 		"Host":"Rob Wood"
 	},
 	{
@@ -61,7 +61,7 @@
 		"Title":"Agile Project Tracking",
 		"Subject":"#agile",
 		"Level":"Beginner",
-		"Attendees":"17",
+		"Attendees":17,
 		"Host":"Tim Simpson"
 	},
 	{
@@ -70,7 +70,7 @@
 		"Title":"Agile Dirty Laundry",
 		"Subject":"#agile",
 		"Level":"Beginner",
-		"Attendees":"9",
+		"Attendees":9,
 		"Host":"Terrance Darling"
 	},
 	{
@@ -79,7 +79,7 @@
 		"Title":"Extreme Programming (XP)",
 		"Subject":"#agile",
 		"Level":"Beginner",
-		"Attendees":"4",
+		"Attendees":4,
 		"Host":"Chris Poole"
 	},
 	{
@@ -88,7 +88,7 @@
 		"Title":"DevOps Overview",
 		"Subject":"#agile",
 		"Level":"Beginner",
-		"Attendees":"3",
+		"Attendees":3,
 		"Host":"Basit Pathan"
 	},
 	{
@@ -97,7 +97,7 @@
 		"Title":"SAFe Overview",
 		"Subject":"#agile",
 		"Level":"Intermediate",
-		"Attendees":"12",
+		"Attendees":12,
 		"Host":"Tim Simpson"
 	},
 	{
@@ -106,7 +106,7 @@
 		"Title":"Introduction to AWS AI",
 		"Subject":"#AI",
 		"Level":"Beginner",
-		"Attendees":"",
+		"Attendees":0,
 		"Host":"Jim Smith"
 	},
 	{
@@ -115,7 +115,7 @@
 		"Title":"What is AI?",
 		"Subject":"#AI",
 		"Level":"Beginner",
-		"Attendees":"",
+		"Attendees":0,
 		"Host":"Shailesh Patel"
 	},
 	{
@@ -124,7 +124,7 @@
 		"Title":"Cloud Essentials",
 		"Subject":"#cloud",
 		"Level":"Beginner",
-		"Attendees":"",
+		"Attendees":0,
 		"Host":"Fred Bloggs"
 	},
 	{
@@ -133,7 +133,7 @@
 		"Title":"Azure Fundamentals",
 		"Subject":"#cloud",
 		"Level":"Beginner",
-		"Attendees":"",
+		"Attendees":0,
 		"Host":"Jan Barr"
 	},
 	{
@@ -142,7 +142,7 @@
 		"Title":"Cloud Cost Reduction",
 		"Subject":"#cloud",
 		"Level":"Intermediate",
-		"Attendees":"",
+		"Attendees":0,
 		"Host":"Snoopy Dog"
 	},
 	{
@@ -151,7 +151,7 @@
 		"Title":"AWS Summit",
 		"Subject":"#cloud",
 		"Level":"Intermediate",
-		"Attendees":"",
+		"Attendees":1,
 		"Host":"Alistair Clare"
 	},
 	{
@@ -160,7 +160,7 @@
 		"Title":"Machine Learning Overview",
 		"Subject":"#AI",
 		"Level":"Beginner",
-		"Attendees":"",
+		"Attendees":0,
 		"Host":"Charlie Brown"
 	},
 	{
@@ -169,7 +169,7 @@
 		"Title":"AWS Storage",
 		"Subject":"#cloud",
 		"Level":"Beginner",
-		"Attendees":"",
+		"Attendees":0,
 		"Host":"Darshan Lopes"
 	},
 	{
@@ -178,7 +178,7 @@
 		"Title":"AW Computer",
 		"Subject":"#cloud",
 		"Level":"Beginner",
-		"Attendees":"",
+		"Attendees":0,
 		"Host":"Darshan Lopes"
 	},
 	{
@@ -187,7 +187,7 @@
 		"Title":"AWS Relational Database Service",
 		"Subject":"#cloud",
 		"Level":"Beginner",
-		"Attendees":"",
+		"Attendees":0,
 		"Host":"Deam Wadhams"
 	}
 	]
