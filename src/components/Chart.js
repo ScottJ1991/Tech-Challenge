@@ -6,14 +6,17 @@ const Chart = props => {
   let chartClour = [];
   let labelText = "";
 
-  if(props.eventType === "E"){
-    chartLabels = ["Beginner", "Intermediate"]
-    chartClour = ["rgba(225, 99,132,0.6)", "rgba(54,162,235, 0.6)"]
+  if (props.eventType === "E") {
+    chartLabels = ["Beginner", "Intermediate"];
+    chartClour = ["rgba(225, 99,132,0.6)", "rgba(54,162,235, 0.6)"];
     labelText = "Num of events";
-  }
-  else{
-    chartLabels = ["0", "below 10", "10+"]
-    chartClour = ["rgba(225, 99,132,0.6)", "rgba(54,162,235, 0.6)", "rgba(225, 99,132,0.6)"]
+  } else {
+    chartLabels = ["0", "1 to 10", "10+"];
+    chartClour = [
+      "rgba(225, 99,132,0.6)",
+      "rgba(54,162,235, 0.6)",
+      "rgba(225, 99,132,0.6)"
+    ];
     labelText = "Total events with this attendees range";
   }
 
