@@ -7,229 +7,146 @@ import Chart from "./Chart";
 
 class Report4 extends Component {
   state = {
-    agileBeg: 0,
-    agileImt: 0,
-    cloudBeg: 0,
-    cloudImt: 0,
-    AIBeg: 0,
-    AIimt: 0,
-    totalBeg: 0,
-    totalImt: 0,
-    tag: "",
-    tagBeg: 0,
-    tagImt: 0,
-    tagTotalAtt: 0,
-    tagTotalEvent: 0,
     yValue: 0,
     hidden: true,
-    agile0: 0,
-    agile10: 0,
-    agile10more: 0,
-    cloud0: 0,
-    cloud10: 0,
-    cloud10more: 0,
-    AI0: 0,
-    AI10: 0,
-    AI10more: 0,
-    TotalEvents: 0,
-    TotalAtte: 0,
-    TotalAgileEvents: 0,
-    TotalAgileAtt: 0,
-    TotalcloudEvents: 0,
-    TotalcloudAtt: 0,
-    TotalAIEvents: 0,
-    TotalAIAtt: 0,
-    tag0: 0,
-    tag10: 0,
-    tag10more: 0
+    agile: [],
+    cloud: [],
+    ai: [],
+    tagInfo: []
   };
 
+  subjectValue(item, data) {
+    let subBeg = data[0];
+    let subImt = data[1];
+    let subAdv = data[2];
+    let subSME = data[3];
+    let sub0 = data[4];
+    let subBelow10 = data[5];
+    let sub10Above = data[6];
+    let subTotalAtt = data[7];
+
+    subBeg = item.Level === "Beginner" ? subBeg + 1 : subBeg;
+    subImt = item.Level === "Intermediate" ? subImt + 1 : subImt;
+    subAdv = item.Level === "Advanced" ? subAdv + 1 : subAdv;
+    subSME = item.Level === "SME" ? subSME + 1 : subSME;
+
+    if (item.Attendees === 0) {
+      sub0++;
+    } else if (item.Attendees > 10) {
+      sub10Above++;
+    } else {
+      subBelow10++;
+    }
+
+    subTotalAtt += item.Attendees;
+    return [
+      subBeg,
+      subImt,
+      subAdv,
+      subSME,
+      sub0,
+      subBelow10,
+      sub10Above,
+      subTotalAtt
+    ];
+  }
+
   componentDidMount() {
-    let agBeg = 0;
-    let agImt = 0;
-    let cBeg = 0;
-    let cImt = 0;
-    let aiBeg = 0;
-    let aiimt = 0;
-    let vag0 = 0;
-    let vag10 = 0;
-    let vag10more = 0;
-    let vc0 = 0;
-    let vc10 = 0;
-    let vc10more = 0;
-    let vai0 = 0;
-    let vai10 = 0;
-    let vai10more = 0;
-    let totalA = 0;
-    let agTotalAtt = 0;
-    let aiTotalAtt = 0;
-    let cTotalAtt = 0;
+    //subBeg[0] subImt[1] subAdv[2] subSME[3] sub0[4] subBelow10[5] sub10Above[6] subTotalAtt[7]
+    let test = {
+      agile: [0, 0, 0, 0, 0, 0, 0, 0],
+      cloud: [0, 0, 0, 0, 0, 0, 0, 0],
+      ai: [0, 0, 0, 0, 0, 0, 0, 0]
+    };
 
     axios.get(testUrl + "/chartData").then(res => {
       //console.log(res.data);
 
-      res.data.forEach(function(item, index) {
-        //console.log(item, index);
+      res.data.forEach(item => {
         if (item.Subject === "#agile") {
-          if (item.Level === "Beginner") {
-            agBeg = agBeg + 1;
-          } else if (item.Level === "Intermediate") {
-            agImt = agImt + 1;
-          }
-
-          if (item.Attendees === 0) {
-            vag0 = vag0 + 1;
-          } else if (item.Attendees > 10) {
-            vag10more = vag10more + 1;
-          } else {
-            vag10 = vag10 + 1;
-          }
-          agTotalAtt = agTotalAtt + item.Attendees;
-          //console.log("agile " + item.Attendees)
-          // console.log("0: " + vag0 + "  -10: " + vag10 + " 10+: " + vag10more)
+          test.agile = this.subjectValue(item, test.agile);
         } else if (item.Subject === "#cloud") {
-          if (item.Level === "Beginner") {
-            cBeg = cBeg + 1;
-          } else if (item.Level === "Intermediate") {
-            cImt = cImt + 1;
-          }
-
-          if (item.Attendees === 0) {
-            vc0 = vc0 + 1;
-          } else if (item.Attendees > 10) {
-            vc10more = vc10more + 1;
-          } else {
-            vc10 = vc10 + 1;
-          }
-
-          cTotalAtt = cTotalAtt + item.Attendees;
-          //console.log("cloud " + item.Attendees)
-          //console.log("0: " + vc0 + "  -10: " + vc10 + " 10+: " + vc10more)
+          test.cloud = this.subjectValue(item, test.cloud);
         } else if (item.Subject === "#AI") {
-          if (item.Level === "Beginner") {
-            aiBeg = aiBeg + 1;
-          } else if (item.Level === "Intermediate") {
-            aiimt = aiimt + 1;
-          }
-          if (item.Attendees === 0) {
-            vai0 = vai0 + 1;
-          } else if (item.Attendees > 10) {
-            vai10more = vai10more + 1;
-          } else {
-            vai10 = vai10 + 1;
-          }
-
-          aiTotalAtt = aiTotalAtt + item.Attendees;
-          //console.log("AI " + item.Attendees)
-          //console.log("0: " + vai0 + "  -10: " + vai10 + " 10+: " + vai10more)
+          test.ai = this.subjectValue(item, test.ai);
         }
-
-        totalA = totalA + item.Attendees;
       });
 
-      this.setState({ agileBeg: agBeg, agileImt: agImt });
-      this.setState({ cloudBeg: cBeg, cloudImt: cImt });
-      this.setState({ AIBeg: aiBeg, AIimt: aiimt });
-      this.setState({
-        totalBeg: agBeg + cBeg + aiBeg,
-        totalImt: agImt + cImt + aiimt
-      });
-      this.setState({
-        TotalAtte: totalA,
-        TotalEvents: agBeg + cBeg + aiBeg + agImt + cImt + aiimt
-      });
-      this.setState({
-        TotalAgileAtt: agTotalAtt,
-        TotalAgileEvents: agBeg + agImt
-      });
-      this.setState({ TotalAIAtt: aiTotalAtt, TotalAIEvents: aiBeg + aiimt });
-      this.setState({
-        TotalcloudAtt: cTotalAtt,
-        TotalcloudEvents: cBeg + cImt
-      });
-      this.setState({
-        tol0: vai0 + vag0 + vc0,
-        tol10: vai10 + vag10 + vc10,
-        tol10more: vai10more + vag10more + vc10more
-      });
-      this.setState({ agile0: vag0, agile10: vag10, agile10more: vag10more });
-      this.setState({ AI0: vai0, AI10: vai10, AI10more: vai10more });
-      this.setState({ cloud0: vc0, cloud10: vc10, cloud10more: vc10more });
+      this.setState({ agile: test.agile, cloud: test.cloud, ai: test.ai });
 
-      if (agBeg + cBeg + aiBeg > agImt + cImt + aiimt) {
-        this.setState({ yValue: agBeg + cBeg + aiBeg + 3 });
-      } else {
-        this.setState({ yValue: agImt + cImt + aiimt + 3 });
-      }
+      //to work out y
+      this.setState({ yValue: 20 });
     });
   }
 
   handleChange = e => {
-    //console.log(e);
-    this.setState({ tag: e });
-
-    if (e === "Cloud") {
+    //subName[0] subBeg[1] subImt[2] subAdv[3] subSME[4], sub0[5] subBelow10[6] sub10Above[7] subTotalAtt[8]
+    if (e === "Agile") {
       this.setState({
-        tagBeg: this.state.cloudBeg,
-        tagImt: this.state.cloudImt
+        tagInfo: [
+          e,
+          this.state.agile[0],
+          this.state.agile[1],
+          this.state.agile[2],
+          this.state.agile[3],
+          this.state.agile[4],
+          this.state.agile[5],
+          this.state.agile[6],
+          this.state.agile[7]
+        ]
       });
-      this.setState({
-        tagTotalAtt: this.state.TotalcloudAtt,
-        tagTotalEvent: this.state.TotalcloudEvents
-      });
-      this.setState({ tag0: this.state.cloud0 });
-      //console.log("state Cl 0: " + this.state.cloud0);
-      this.setState({ tag10: this.state.cloud10 });
-      //console.log("state Cl -10: " + this.state.cloud10);
-      this.setState({ tag10more: this.state.cloud10more });
-      //console.log("state Cl 10+: " + this.state.cloud10more);
     } else if (e === "AI") {
-      this.setState({ tagBeg: this.state.AIBeg, tagImt: this.state.AIimt });
       this.setState({
-        tagTotalAtt: this.state.TotalAIAtt,
-        tagTotalEvent: this.state.TotalAIEvents
+        tagInfo: [
+          e,
+          this.state.ai[0],
+          this.state.ai[1],
+          this.state.ai[2],
+          this.state.ai[3],
+          this.state.ai[4],
+          this.state.ai[5],
+          this.state.ai[6],
+          this.state.ai[7]
+        ]
       });
-      this.setState({ tag0: this.state.AI0 });
-      //console.log("state AI 0: " + this.state.AI0);
-      this.setState({ tag10: this.state.AI10 });
-      //console.log("state AI -10: " + this.state.AI10);
-      this.setState({ tag10more: this.state.AI10more });
-      //console.log("state AI 10+: " + this.state.AI10more);
-    } else if (e === "Agile") {
+    } else if (e === "Cloud") {
       this.setState({
-        tagBeg: this.state.agileBeg,
-        tagImt: this.state.agileImt
+        tagInfo: [
+          e,
+          this.state.cloud[0],
+          this.state.cloud[1],
+          this.state.cloud[2],
+          this.state.cloud[3],
+          this.state.cloud[4],
+          this.state.cloud[5],
+          this.state.cloud[6],
+          this.state.cloud[7]
+        ]
       });
-      this.setState({
-        tagTotalAtt: this.state.TotalAgileAtt,
-        tagTotalEvent: this.state.TotalAgileEvents
-      });
-      this.setState({ tag0: this.state.agile0 });
-      //console.log("state Ag 0: " + this.state.agile0);
-      this.setState({ tag10: this.state.agile10 });
-      //console.log("state Ag -10: " + this.state.agile10);
-      this.setState({ tag10more: this.state.agile10more });
-      //console.log("state Ag 10+: " + this.state.agile10more);
     }
     this.setState({ hidden: false });
   };
 
   render() {
+    if (!this.state.agile || this.state.agile.length < 1) {
+      return <span>Loading...</span>;
+    }
+
     return (
       <Row>
         <Col sm={{ span: gobalSize, offset: gobalOffset }}>
-          <h3>Report ?????</h3>
+          <h3>Report by subject/level</h3>
           <Row>
             <Col>
               <DropdownButton title="Pick subject">
                 <Dropdown.Item onSelect={this.handleChange} eventKey="Agile">
                   Agile
                 </Dropdown.Item>
-                <Dropdown.Item onSelect={this.handleChange} eventKey="Cloud">
-                  Cloud
-                </Dropdown.Item>
                 <Dropdown.Item onSelect={this.handleChange} eventKey="AI">
                   AI
+                </Dropdown.Item>
+                <Dropdown.Item onSelect={this.handleChange} eventKey="Cloud">
+                  Cloud
                 </Dropdown.Item>
               </DropdownButton>
             </Col>
@@ -237,50 +154,80 @@ class Report4 extends Component {
           <Row>
             <Col sm={5}>
               <Chart
-                dataValues={[this.state.totalBeg, this.state.totalImt, 0]}
-                label={["Beginner", "Intermediate"]}
+                dataValues={[
+                  this.state.agile[0] + this.state.cloud[0] + this.state.ai[0],
+                  this.state.agile[1] + this.state.cloud[1] + this.state.ai[1],
+                  this.state.agile[2] + this.state.cloud[2] + this.state.ai[2],
+                  this.state.agile[3] + this.state.cloud[3] + this.state.ai[3],
+                  0
+                ]}
                 eventType="E"
                 chartTitle="All events"
                 y={this.state.yValue}
               />
-              <p>Total events held: {this.state.TotalEvents}</p>
+              <p>
+                Total events held:{" "}
+                {this.state.agile[0] +
+                  this.state.cloud[0] +
+                  this.state.ai[0] +
+                  this.state.agile[1] +
+                  this.state.cloud[1] +
+                  this.state.ai[1] +
+                  this.state.agile[2] +
+                  this.state.cloud[2] +
+                  this.state.ai[2] +
+                  this.state.agile[3] +
+                  this.state.cloud[3] +
+                  this.state.ai[3]}
+              </p>
               <Chart
                 dataValues={[
-                  this.state.tol0,
-                  this.state.tol10,
-                  this.state.tol10more,
+                  this.state.agile[4] + this.state.cloud[4] + this.state.ai[4],
+                  this.state.agile[5] + this.state.cloud[5] + this.state.ai[5],
+                  this.state.agile[6] + this.state.cloud[6] + this.state.ai[6],
                   0
                 ]}
                 chartTitle="All event attendees range"
                 y={this.state.yValue}
               />
-              <p>Total attendees: {this.state.TotalAtte}</p>
+              <p>
+                Total attendees:{" "}
+                {this.state.agile[7] + this.state.cloud[7] + this.state.ai[7]}
+              </p>
             </Col>
             <Col sm={5} hidden={this.state.hidden}>
               <Chart
-                dataValues={[this.state.tagBeg, this.state.tagImt, 0]}
-                label={["Beginner", "Intermediate"]}
+                dataValues={[
+                  this.state.tagInfo[1],
+                  this.state.tagInfo[2],
+                  this.state.tagInfo[3],
+                  this.state.tagInfo[4],
+                  0
+                ]}
                 eventType="E"
-                chartTitle={"Events for " + this.state.tag}
+                chartTitle={"Events for " + this.state.tagInfo[0]}
                 y={this.state.yValue}
               />
               <p>
-                Total events held for {this.state.tag}:{" "}
-                {this.state.tagTotalEvent}
+                Total events held for {this.state.tagInfo[0]}:{" "}
+                {this.state.tagInfo[1] +
+                  this.state.tagInfo[2] +
+                  this.state.tagInfo[3] +
+                  this.state.tagInfo[4]}
               </p>
               <Chart
                 dataValues={[
-                  this.state.tag0,
-                  this.state.tag10,
-                  this.state.tag10more,
+                  this.state.tagInfo[5],
+                  this.state.tagInfo[6],
+                  this.state.tagInfo[7],
                   0
                 ]}
-                chartTitle={this.state.tag + " event attendees range"}
+                chartTitle={this.state.tagInfo[0] + " event attendees range"}
                 y={this.state.yValue}
               />
               <p>
-                Total attendees for {this.state.tag} events:{" "}
-                {this.state.tagTotalAtt}
+                Total attendees for {this.state.tagInfo[0]} events:{" "}
+                {this.state.tagInfo[8]}
               </p>
             </Col>
           </Row>

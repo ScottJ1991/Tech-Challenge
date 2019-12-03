@@ -3,31 +3,28 @@ import { Bar } from "react-chartjs-2";
 
 const Chart = props => {
   let chartLabels = [];
-  let chartClour = [];
+  let chartClour = [
+    "rgba(225, 99,132,0.6)",
+    "rgba(54,162,235, 0.6)",
+    "rgba(235, 238, 36, 0.6)",
+    "rgba(242, 156, 58, 0.6)"
+  ];
   let labelText = "";
 
   if (props.eventType === "E") {
-    chartLabels = ["Beginner", "Intermediate"];
-    chartClour = ["rgba(225, 99,132,0.6)", "rgba(54,162,235, 0.6)"];
+    chartLabels = ["Beginner", "Intermediate", "Advanced", "SME"];
     labelText = "Num of events";
   } else {
     chartLabels = ["0", "1 to 10", "10+"];
-    chartClour = [
-      "rgba(225, 99,132,0.6)",
-      "rgba(54,162,235, 0.6)",
-      "rgba(225, 99,132,0.6)"
-    ];
     labelText = "Total events with this attendees range";
   }
 
   let chartData = {
-    //labels: [props.label[0], props.label[1]],
     labels: chartLabels,
     datasets: [
       {
         label: labelText,
         data: props.dataValues,
-        //data: [10, 8, 0],
         backgroundColor: chartClour
       }
     ]

@@ -60,7 +60,7 @@ const List = props => {
 
   return (
     <Row>
-      <Col sm={3}>Event tilte: {props.Event.title}</Col>
+      <Col sm={3}>Event title: {props.Event.title}</Col>
       <Col sm={9}>Event description: {props.Event.description}</Col>
       <Col sm={3}>
         Organiser name: {props.Event.organiser.forename}{" "}

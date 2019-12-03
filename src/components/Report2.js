@@ -39,7 +39,7 @@ class Report2 extends Component {
     return (
       <Row>
         <Col sm={{ span: gobalSize, offset: gobalOffset }}>
-          <h3>Report for events a organiser as held</h3>
+          <h3>Report for events an organiser has held</h3>
           <Form onSubmit={this.handleSubmit}>
             <Form.Row>
               <Form.Group as={Col} sm="4" controlId="userId">

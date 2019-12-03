@@ -12,10 +12,13 @@ import { Navbar, Nav } from 'react-bootstrap';
                 <li><NavLink to='/R3'>Report 3</NavLink></li>
             </ul>
 */
+
 const NavBar = () => {
     return(
         <Navbar bg="light" expand="lg">
-            <Navbar.Brand href="/">Simpsons</Navbar.Brand>
+            <Navbar.Brand href="/">
+            <img src='/hiclipart.png' width="160" height="150" alt="The Simpsons"/>
+            </Navbar.Brand>
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="mr-auto">
@@ -24,6 +27,7 @@ const NavBar = () => {
                         <Nav.Link href="/R2">Report 2</Nav.Link>
                         <Nav.Link href="/R3">Report 3</Nav.Link>
                         <Nav.Link href="/R4">Report 4</Nav.Link>
+                        <Nav.Link href="/R5">Report 5</Nav.Link>
                     </Nav>
                 </Navbar.Collapse>
         </Navbar>
