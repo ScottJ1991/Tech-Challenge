@@ -3,7 +3,7 @@ import axios from "axios";
 import { Form, Button, Col, Row, Card, ListGroup } from "react-bootstrap";
 
 import List from "./List";
-import { baseUrl } from "./staticVar";
+import { AWSUrl, gobalOffset, gobalSize } from "./staticVar";
 
 class Report1 extends Component {
   state = {
@@ -25,29 +25,25 @@ class Report1 extends Component {
 
     if (this.state.from !== "" && this.state.to !== "") {
       wholeUrl =
-        baseUrl +
+        AWSUrl +
         "/users/" +
         this.state.userId +
         "/events?from=" +
         this.state.from +
         "&to=" +
-        this.state.to; 
+        this.state.to;
     } else if (this.state.from !== "") {
       wholeUrl =
-        baseUrl +
+        AWSUrl +
         "/users/" +
         this.state.userId +
         "/events?from=" +
         this.state.from;
     } else if (this.state.to !== "") {
       wholeUrl =
-        baseUrl +
-        "/users/" +
-        this.state.userId +
-        "/events?to=" +
-        this.state.to;
+        AWSUrl + "/users/" + this.state.userId + "/events?to=" + this.state.to;
     } else {
-      wholeUrl = baseUrl + "/users/" + this.state.userId + "/events";
+      wholeUrl = AWSUrl + "/users/" + this.state.userId + "/events";
     }
 
     axios
@@ -69,63 +65,65 @@ class Report1 extends Component {
 
   render() {
     return (
-      <div>
-        <h3>Report for events attended by a person</h3>
-        <Form onSubmit={this.handleSubmit}>
-          <Form.Row>
-            <Form.Group as={Col} sm="3" controlId="userId">
-              <Row>
-                <Form.Label column sm="3">
-                  User ID
-                </Form.Label>
-                <Col sm={9}>
-                  <Form.Control
-                    required
-                    onChange={this.handleChange}
-                    type="number"
-                    placeholder="Enter an user ID"
-                  />
-                </Col>
-              </Row>
-            </Form.Group>
-            <Form.Group as={Col} sm="3" controlId="from">
-              <Row>
-                <Form.Label column sm="4">
-                  Start date
-                </Form.Label>
-                <Col sm={8}>
-                  <Form.Control onChange={this.handleChange} type="date" />
-                </Col>
-              </Row>
-            </Form.Group>
-            <Form.Group as={Col} sm="3" controlId="to">
-              <Row>
-                <Form.Label column sm="4">
-                  End date
-                </Form.Label>
-                <Col sm={8}>
-                  <Form.Control onChange={this.handleChange} type="date" />
-                </Col>
-              </Row>
-            </Form.Group>
-            <Form.Group>
-              <Button variant="primary" type="submit">
-                Submit
-              </Button>
-            </Form.Group>
-          </Form.Row>
-        </Form>
+      <Row>
+        <Col sm={{ span: gobalSize, offset: gobalOffset }}>
+          <h3>Report for events attended by a person</h3>
+          <Form onSubmit={this.handleSubmit}>
+            <Form.Row>
+              <Form.Group as={Col} sm="3" controlId="userId">
+                <Row>
+                  <Form.Label column sm="4">
+                    User ID
+                  </Form.Label>
+                  <Col sm={8}>
+                    <Form.Control
+                      required
+                      onChange={this.handleChange}
+                      type="number"
+                      placeholder="Enter an user ID"
+                    />
+                  </Col>
+                </Row>
+              </Form.Group>
+              <Form.Group as={Col} sm="4" controlId="from">
+                <Row>
+                  <Form.Label column sm="4">
+                    Start date
+                  </Form.Label>
+                  <Col sm={8}>
+                    <Form.Control onChange={this.handleChange} type="date" />
+                  </Col>
+                </Row>
+              </Form.Group>
+              <Form.Group as={Col} sm="4" controlId="to">
+                <Row>
+                  <Form.Label column sm="4">
+                    End date
+                  </Form.Label>
+                  <Col sm={8}>
+                    <Form.Control onChange={this.handleChange} type="date" />
+                  </Col>
+                </Row>
+              </Form.Group>
+              <Form.Group>
+                <Button variant="primary" type="submit">
+                  Submit
+                </Button>
+              </Form.Group>
+            </Form.Row>
+          </Form>
 
-        <Card>
-          <ListGroup variant="flush">
-            {this.state.events.map(event => (
-              <ListGroup.Item key={event.id}>
-                <List Event={event} />
-              </ListGroup.Item>
-            ))}
-          </ListGroup>
-        </Card>
-      </div>
+          <Card>
+            <ListGroup variant="flush">
+              {this.state.events.map(event => (
+                <ListGroup.Item key={event.id}>
+                  <List Event={event} />
+                </ListGroup.Item>
+              ))}
+            </ListGroup>
+          </Card>
+        </Col>
+      </Row>
     );
   }
 }

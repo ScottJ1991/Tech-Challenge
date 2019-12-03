@@ -23,6 +23,7 @@ const NavBar = () => {
                         <Nav.Link href="/R1">Report 1</Nav.Link>
                         <Nav.Link href="/R2">Report 2</Nav.Link>
                         <Nav.Link href="/R3">Report 3</Nav.Link>
+                        <Nav.Link href="/R4">Report 4</Nav.Link>
                     </Nav>
                 </Navbar.Collapse>
         </Navbar>

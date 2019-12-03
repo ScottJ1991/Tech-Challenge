@@ -3,7 +3,7 @@ import axios from "axios";
 import { Form, Button, Col, Row, Card, ListGroup } from "react-bootstrap";
 
 import List from "./List";
-import { baseUrl } from "./staticVar";
+import { AWSUrl, gobalOffset, gobalSize } from "./staticVar";
 
 class Report2 extends Component {
   state = {
@@ -19,7 +19,7 @@ class Report2 extends Component {
     e.preventDefault();
 
     axios
-      .get(baseUrl + "/events?organiserId=" + this.state.userId)
+      .get(AWSUrl + "/events?organiserId=" + this.state.userId)
       .then(res => {
         this.setState({ events: res.data });
       })
@@ -37,43 +37,45 @@ class Report2 extends Component {
 
   render() {
     return (
-      <div>
-        <h3>Report for events a organiser as held</h3>
-        <Form onSubmit={this.handleSubmit}>
-          <Form.Row>
-            <Form.Group as={Col} sm="3" controlId="userId">
-              <Row>
-                <Form.Label column sm="3">
-                  User ID
-                </Form.Label>
-                <Col sm={9}>
-                  <Form.Control
-                    required
-                    onChange={this.handleChange}
-                    type="number"
-                    placeholder="Enter an user ID"
-                  />
-                </Col>
-              </Row>
-            </Form.Group>
-            <Form.Group>
-              <Button variant="primary" type="submit">
-                Submit
-              </Button>
-            </Form.Group>
-          </Form.Row>
-        </Form>
+      <Row>
+        <Col sm={{ span: gobalSize, offset: gobalOffset }}>
+          <h3>Report for events a organiser as held</h3>
+          <Form onSubmit={this.handleSubmit}>
+            <Form.Row>
+              <Form.Group as={Col} sm="4" controlId="userId">
+                <Row>
+                  <Form.Label column sm="3">
+                    User ID
+                  </Form.Label>
+                  <Col sm={9}>
+                    <Form.Control
+                      required
+                      onChange={this.handleChange}
+                      type="number"
+                      placeholder="Enter an user ID"
+                    />
+                  </Col>
+                </Row>
+              </Form.Group>
+              <Form.Group>
+                <Button variant="primary" type="submit">
+                  Submit
+                </Button>
+              </Form.Group>
+            </Form.Row>
+          </Form>
 
-        <Card>
-          <ListGroup variant="flush">
-            {this.state.events.map(event => (
-              <ListGroup.Item key={event.id}>
-                <List Event={event} />
-              </ListGroup.Item>
-            ))}
-          </ListGroup>
-        </Card>
-      </div>
+          <Card>
+            <ListGroup variant="flush">
+              {this.state.events.map(event => (
+                <ListGroup.Item key={event.id}>
+                  <List Event={event} />
+                </ListGroup.Item>
+              ))}
+            </ListGroup>
+          </Card>
+        </Col>
+      </Row>
     );
   }
 }
