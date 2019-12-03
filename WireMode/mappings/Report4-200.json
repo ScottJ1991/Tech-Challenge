@@ -1,0 +1,195 @@
+{
+    "request": {
+        "method": "GET",
+        "url": "/chartData"
+    },
+	"response": {
+		"status": 200,
+		"headers":{
+			"Content-Type" : "application/json",
+			"Access-Control-Allow-Origin" : "*"
+		},
+		"jsonBody": [
+	{
+		"ID":"1",
+		"Date":"10/06/2019",
+		"Title":"What is Agile all about?",
+		"Subject":"#agile",
+		"Level":"Beginner",
+		"Attendees":"8",
+		"Host":"Tim Simpson"
+	},
+	{
+		"ID":"2",
+		"Date":"13/06/2019",
+		"Title":"Scrum Overview",
+		"Subject":"#agile",
+		"Level":"Beginner",
+		"Attendees":"15",
+		"Host":"Tim Simpson"
+	},
+	{
+		"ID":"3",
+		"Date":"17/06/2019",
+		"Title":"Agile Requirements",
+		"Subject":"#agile",
+		"Level":"Beginner",
+		"Attendees":"11",
+		"Host":"Tim Simpson"
+	},
+	{
+		"ID":"4",
+		"Date":"18/06/2019",
+		"Title":"Agile Planning",
+		"Subject":"#agile",
+		"Level":"Beginner",
+		"Attendees":"15",
+		"Host":"Rob Wood"
+	},
+	{
+		"ID":"5",
+		"Date":"18/06/2019",
+		"Title":"Agile Estimation",
+		"Subject":"#agile",
+		"Level":"Beginner",
+		"Attendees":"15",
+		"Host":"Rob Wood"
+	},
+	{
+		"ID":"6",
+		"Date":"20/06/2019",
+		"Title":"Agile Project Tracking",
+		"Subject":"#agile",
+		"Level":"Beginner",
+		"Attendees":"17",
+		"Host":"Tim Simpson"
+	},
+	{
+		"ID":"7",
+		"Date":"24/06/2019",
+		"Title":"Agile Dirty Laundry",
+		"Subject":"#agile",
+		"Level":"Beginner",
+		"Attendees":"9",
+		"Host":"Terrance Darling"
+	},
+	{
+		"ID":"8",
+		"Date":"25/06/2019",
+		"Title":"Extreme Programming (XP)",
+		"Subject":"#agile",
+		"Level":"Beginner",
+		"Attendees":"4",
+		"Host":"Chris Poole"
+	},
+	{
+		"ID":"9",
+		"Date":"27/06/2019",
+		"Title":"DevOps Overview",
+		"Subject":"#agile",
+		"Level":"Beginner",
+		"Attendees":"3",
+		"Host":"Basit Pathan"
+	},
+	{
+		"ID":"10",
+		"Date":"17/10/2019",
+		"Title":"SAFe Overview",
+		"Subject":"#agile",
+		"Level":"Intermediate",
+		"Attendees":"12",
+		"Host":"Tim Simpson"
+	},
+	{
+		"ID":"11",
+		"Date":"10/10/2019",
+		"Title":"Introduction to AWS AI",
+		"Subject":"#AI",
+		"Level":"Beginner",
+		"Attendees":"",
+		"Host":"Jim Smith"
+	},
+	{
+		"ID":"12",
+		"Date":"10/01/2019",
+		"Title":"What is AI?",
+		"Subject":"#AI",
+		"Level":"Beginner",
+		"Attendees":"",
+		"Host":"Shailesh Patel"
+	},
+	{
+		"ID":"13",
+		"Date":"30/05/2019",
+		"Title":"Cloud Essentials",
+		"Subject":"#cloud",
+		"Level":"Beginner",
+		"Attendees":"",
+		"Host":"Fred Bloggs"
+	},
+	{
+		"ID":"14",
+		"Date":"22/05/2019",
+		"Title":"Azure Fundamentals",
+		"Subject":"#cloud",
+		"Level":"Beginner",
+		"Attendees":"",
+		"Host":"Jan Barr"
+	},
+	{
+		"ID":"15",
+		"Date":"02/10/2019",
+		"Title":"Cloud Cost Reduction",
+		"Subject":"#cloud",
+		"Level":"Intermediate",
+		"Attendees":"",
+		"Host":"Snoopy Dog"
+	},
+	{
+		"ID":"16",
+		"Date":"21/05/2019",
+		"Title":"AWS Summit",
+		"Subject":"#cloud",
+		"Level":"Intermediate",
+		"Attendees":"",
+		"Host":"Alistair Clare"
+	},
+	{
+		"ID":"17",
+		"Date":"27/06/2019",
+		"Title":"Machine Learning Overview",
+		"Subject":"#AI",
+		"Level":"Beginner",
+		"Attendees":"",
+		"Host":"Charlie Brown"
+	},
+	{
+		"ID":"18",
+		"Date":"17/10/2019",
+		"Title":"AWS Storage",
+		"Subject":"#cloud",
+		"Level":"Beginner",
+		"Attendees":"",
+		"Host":"Darshan Lopes"
+	},
+	{
+		"ID":"19",
+		"Date":"10/10/2019",
+		"Title":"AW Computer",
+		"Subject":"#cloud",
+		"Level":"Beginner",
+		"Attendees":"",
+		"Host":"Darshan Lopes"
+	},
+	{
+		"ID":"20",
+		"Date":"12/08/2019",
+		"Title":"AWS Relational Database Service",
+		"Subject":"#cloud",
+		"Level":"Beginner",
+		"Attendees":"",
+		"Host":"Deam Wadhams"
+	}
+	]
+    }
+}
