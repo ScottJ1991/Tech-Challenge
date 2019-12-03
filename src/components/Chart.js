@@ -2,15 +2,30 @@ import React from "react";
 import { Bar } from "react-chartjs-2";
 
 const Chart = props => {
+  let chartLabels = [];
+  let chartClour = [];
+  let labelText = "";
+
+  if(props.eventType === "E"){
+    chartLabels = ["Beginner", "Intermediate"]
+    chartClour = ["rgba(225, 99,132,0.6)", "rgba(54,162,235, 0.6)"]
+    labelText = "Num of events";
+  }
+  else{
+    chartLabels = ["0", "below 10", "10+"]
+    chartClour = ["rgba(225, 99,132,0.6)", "rgba(54,162,235, 0.6)", "rgba(225, 99,132,0.6)"]
+    labelText = "Total events with this attendees range";
+  }
+
   let chartData = {
     //labels: [props.label[0], props.label[1]],
-    labels: ["Beginner", "Intermediate"],
+    labels: chartLabels,
     datasets: [
       {
-        label: "Num of events",
+        label: labelText,
         data: props.dataValues,
         //data: [10, 8, 0],
-        backgroundColor: ["rgba(225, 99,132,0.6)", "rgba(54,162,235, 0.6)"]
+        backgroundColor: chartClour
       }
     ]
   };
