@@ -23,44 +23,55 @@ class Report1 extends Component {
     this.setState({ events: [] });
     //https://www.youtube.com/watch?v=4uzEUATtNHQ&list=PL4cUxeGkcC9ij8CfkAY2RAGb-tmkNwQHG&index=30&t=0s
 
-    if (this.state.from !== "" && this.state.to !== "") {
-      wholeUrl =
-        AWSUrl +
-        "/users/" +
-        this.state.userId +
-        "/events?from=" +
-        this.state.from +
-        "&to=" +
-        this.state.to;
-    } else if (this.state.from !== "") {
-      wholeUrl =
-        AWSUrl +
-        "/users/" +
-        this.state.userId +
-        "/events?from=" +
-        this.state.from;
-    } else if (this.state.to !== "") {
-      wholeUrl =
-        AWSUrl + "/users/" + this.state.userId + "/events?to=" + this.state.to;
+    if (this.state.from > this.state.to) {
+      console.log("Bad data");
     } else {
-      wholeUrl = AWSUrl + "/users/" + this.state.userId + "/events";
-    }
+      if (this.state.from !== "" && this.state.to !== "") {
+        wholeUrl =
+          AWSUrl +
+          "/users/" +
+          this.state.userId +
+          "/events?from=" +
+          this.state.from +
+          "&to=" +
+          this.state.to;
+      } else if (this.state.from !== "") {
+        wholeUrl =
+          AWSUrl +
+          "/users/" +
+          this.state.userId +
+          "/events?from=" +
+          this.state.from;
+      } else if (this.state.to !== "") {
+        wholeUrl =
+          AWSUrl +
+          "/users/" +
+          this.state.userId +
+          "/events?to=" +
+          this.state.to;
+      } else {
+        wholeUrl = AWSUrl + "/users/" + this.state.userId + "/events";
+      }
 
-    axios
-      .get(wholeUrl)
-      .then(res => {
-        this.setState({ events: res.data });
-      })
-      .catch(error => {
-        //console.log(error);
-        //console.log(error.response.data)
-        if (typeof error.response !== "undefined") {
-          if (error.response.status === 400 || error.response.status === 500) {
-            //this.setState({ events: error.response.data.reason })
-            console.log(error.response.data.reason);
+      axios
+        .get(wholeUrl)
+        .then(res => {
+          this.setState({ events: res.data });
+        })
+        .catch(error => {
+          //console.log(error);
+          //console.log(error.response.data)
+          if (typeof error.response !== "undefined") {
+            if (
+              error.response.status === 400 ||
+              error.response.status === 500
+            ) {
+              //this.setState({ events: error.response.data.reason })
+              console.log(error.response.data.reason);
+            }
           }
-        }
-      });
+        });
+    }
   };
 
   render() {

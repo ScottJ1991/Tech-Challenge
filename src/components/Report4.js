@@ -18,7 +18,8 @@ class Report4 extends Component {
     tag: "",
     tagBeg: 0,
     tagImt: 0,
-    yValue: 0
+    yValue: 0,
+    hidden: true
   };
 
   componentDidMount() {
@@ -86,6 +87,7 @@ class Report4 extends Component {
       this.setState({ tagBeg: this.state.agileBeg });
       this.setState({ tagImt: this.state.agileImt });
     }
+    this.setState({hidden: false});
   };
 
   render() {
@@ -116,7 +118,7 @@ class Report4 extends Component {
                 y={this.state.yValue}
               />
             </Col>
-            <Col sm={5}>
+            <Col sm={5} hidden={this.state.hidden}>
               <Chart
                 dataValues={[this.state.tagBeg, this.state.tagImt, 0]}
                 chartTitle={"Events for " + this.state.tag}
