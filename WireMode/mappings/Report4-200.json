@@ -189,6 +189,249 @@
 		"Level":"Beginner",
 		"Attendees":0,
 		"Host":"Deam Wadhams"
+	},
+	{
+		"ID":"21",
+		"Date":"12/08/2019",
+		"Title":"AWS Relational Database Service",
+		"Subject":"#cloud",
+		"Level":"Advanced",
+		"Attendees":3,
+		"Host":"Deam Wadhams"
+	},
+	{
+		"ID":"22",
+		"Date":"12/08/2019",
+		"Title":"AWS Relational Database Service",
+		"Subject":"#cloud",
+		"Level":"SME",
+		"Attendees":1,
+		"Host":"Deam Wadhams"
+	},
+	{
+		"ID":"23",
+		"Date":"12/08/2019",
+		"Title":"AWS Relational Database Service",
+		"Subject":"#cloud",
+		"Level":"Advanced",
+		"Attendees":0,
+		"Host":"Deam Wadhams"
+	},
+	{
+		"ID":"24",
+		"Date":"12/08/2019",
+		"Title":"AWS Relational Database Service",
+		"Subject":"#cloud",
+		"Level":"Intermediate",
+		"Attendees":10,
+		"Host":"Deam Wadhams"
+	},
+	{
+		"ID":"25",
+		"Date":"12/08/2019",
+		"Title":"AWS Relational Database Service",
+		"Subject":"#cloud",
+		"Level":"Advanced",
+		"Attendees":0,
+		"Host":"Deam Wadhams"
+	},
+	{
+		"ID":"26",
+		"Date":"12/08/2019",
+		"Title":"AWS Relational Database Service",
+		"Subject":"#cloud",
+		"Level":"Intermediate",
+		"Attendees":2,
+		"Host":"Deam Wadhams"
+	},
+	{
+		"ID":"27",
+		"Date":"12/08/2019",
+		"Title":"AWS Relational Database Service",
+		"Subject":"#cloud",
+		"Level":"Beginner",
+		"Attendees":2,
+		"Host":"Deam Wadhams"
+	},
+	{
+		"ID":"28",
+		"Date":"27/06/2019",
+		"Title":"Machine Learning Overview",
+		"Subject":"#AI",
+		"Level":"Advanced",
+		"Attendees":2,
+		"Host":"Charlie Brown"
+	},
+	{
+		"ID":"29",
+		"Date":"27/06/2019",
+		"Title":"Machine Learning Overview",
+		"Subject":"#AI",
+		"Level":"Intermediate",
+		"Attendees":5,
+		"Host":"Charlie Brown"
+	},
+	{
+		"ID":"30",
+		"Date":"27/06/2019",
+		"Title":"Machine Learning Overview",
+		"Subject":"#AI",
+		"Level":"SME",
+		"Attendees":1,
+		"Host":"Charlie Brown"
+	},
+	{
+		"ID":"31",
+		"Date":"27/06/2019",
+		"Title":"Machine Learning Overview",
+		"Subject":"#AI",
+		"Level":"Beginner",
+		"Attendees":10,
+		"Host":"Charlie Brown"
+	},
+	{
+		"ID":"32",
+		"Date":"27/06/2019",
+		"Title":"Machine Learning Overview",
+		"Subject":"#AI",
+		"Level":"Advanced",
+		"Attendees":9,
+		"Host":"Charlie Brown"
+	},
+	{
+		"ID":"33",
+		"Date":"27/06/2019",
+		"Title":"Machine Learning Overview",
+		"Subject":"#AI",
+		"Level":"Beginner",
+		"Attendees":0,
+		"Host":"Charlie Brown"
+	},
+	{
+		"ID":"34",
+		"Date":"27/06/2019",
+		"Title":"Machine Learning Overview",
+		"Subject":"#AI",
+		"Level":"Beginner",
+		"Attendees":0,
+		"Host":"Charlie Brown"
+	},
+	{
+		"ID":"35",
+		"Date":"27/06/2019",
+		"Title":"Machine Learning Overview",
+		"Subject":"#AI",
+		"Level":"Advanced",
+		"Attendees":0,
+		"Host":"Charlie Brown"
+	},
+	{
+		"ID":"36",
+		"Date":"27/06/2019",
+		"Title":"Machine Learning Overview",
+		"Subject":"#AI",
+		"Level":"Intermediate",
+		"Attendees":0,
+		"Host":"Charlie Brown"
+	},
+	{
+		"ID":"37",
+		"Date":"27/06/2019",
+		"Title":"Machine Learning Overview",
+		"Subject":"#AI",
+		"Level":"Intermediate",
+		"Attendees":0,
+		"Host":"Charlie Brown"
+	},
+	{
+		"ID":"38",
+		"Date":"27/06/2019",
+		"Title":"Machine Learning Overview",
+		"Subject":"#AI",
+		"Level":"Intermediate",
+		"Attendees":0,
+		"Host":"Charlie Brown"
+	},
+	{
+		"ID":"39",
+		"Date":"27/06/2019",
+		"Title":"Machine Learning Overview",
+		"Subject":"#AI",
+		"Level":"Beginner",
+		"Attendees":0,
+		"Host":"Charlie Brown"
+	},
+	{
+		"ID":"40",
+		"Date":"27/06/2019",
+		"Title":"Machine Learning Overview",
+		"Subject":"#AI",
+		"Level":"SME",
+		"Attendees":1,
+		"Host":"Charlie Brown"
+	},
+	{
+		"ID":"41",
+		"Date":"17/10/2019",
+		"Title":"SAFe Overview",
+		"Subject":"#agile",
+		"Level":"Intermediate",
+		"Attendees":0,
+		"Host":"Tim Simpson"
+	},
+	{
+		"ID":"42",
+		"Date":"17/10/2019",
+		"Title":"SAFe Overview",
+		"Subject":"#agile",
+		"Level":"Advanced",
+		"Attendees":2,
+		"Host":"Tim Simpson"
+	},
+	{
+		"ID":"43",
+		"Date":"17/10/2019",
+		"Title":"SAFe Overview",
+		"Subject":"#agile",
+		"Level":"SME",
+		"Attendees":0,
+		"Host":"Tim Simpson"
+	},
+	{
+		"ID":"44",
+		"Date":"17/10/2019",
+		"Title":"SAFe Overview",
+		"Subject":"#agile",
+		"Level":"SME",
+		"Attendees":0,
+		"Host":"Tim Simpson"
+	},
+	{
+		"ID":"45",
+		"Date":"17/10/2019",
+		"Title":"SAFe Overview",
+		"Subject":"#agile",
+		"Level":"SME",
+		"Attendees":0,
+		"Host":"Tim Simpson"
+	},
+	{
+		"ID":"46",
+		"Date":"17/10/2019",
+		"Title":"SAFe Overview",
+		"Subject":"#agile",
+		"Level":"Advanced",
+		"Attendees":5,
+		"Host":"Tim Simpson"
+	},
+	{
+		"ID":"47",
+		"Date":"17/10/2019",
+		"Title":"SAFe Overview",
+		"Subject":"#agile",
+		"Level":"Intermediate",
+		"Attendees":10,
+		"Host":"Tim Simpson"
 	}
 	]
     }
