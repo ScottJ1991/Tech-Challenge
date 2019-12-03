@@ -7,7 +7,8 @@ import Chart from "./Chart";
 
 class Report4 extends Component {
   state = {
-    yValue: 0,
+    c1Yvalue: 0,
+    c2Yvalue: 0,
     hidden: true,
     agile: [],
     cloud: [],
@@ -73,9 +74,36 @@ class Report4 extends Component {
       });
 
       this.setState({ agile: test.agile, cloud: test.cloud, ai: test.ai });
+      //subBeg[0] subImt[1] subAdv[2] subSME[3]
+      let chart1Yarray = [
+        this.state.agile[0] + this.state.ai[0] + this.state.cloud[0],
+        this.state.agile[1] + this.state.ai[1] + this.state.cloud[1],
+        this.state.agile[2] + this.state.ai[2] + this.state.cloud[2],
+        this.state.agile[3] + this.state.ai[3] + this.state.cloud[3]
+      ];
 
-      //to work out y
-      this.setState({ yValue: 20 });
+      //sub0[4] subBelow10[5] sub10Above[6]
+      let chart2Yarray = [
+        this.state.agile[4] + this.state.ai[4] + this.state.cloud[4],
+        this.state.agile[5] + this.state.ai[5] + this.state.cloud[5],
+        this.state.agile[6] + this.state.ai[6] + this.state.cloud[6]
+      ];
+
+      let xNum = 5;
+
+      //console.log(Math.max.apply(Math, chart1Yarray))
+      this.setState({
+        c1Yvalue:
+          xNum -
+          (Math.max.apply(Math, chart1Yarray) % xNum) +
+          Math.max.apply(Math, chart1Yarray)
+      });
+      this.setState({
+        c2Yvalue:
+          xNum -
+          (Math.max.apply(Math, chart2Yarray) % xNum) +
+          Math.max.apply(Math, chart2Yarray)
+      });
     });
   }
 
@@ -163,7 +191,7 @@ class Report4 extends Component {
                 ]}
                 eventType="E"
                 chartTitle="All events"
-                y={this.state.yValue}
+                y={this.state.c1Yvalue}
               />
               <p>
                 Total events held:{" "}
@@ -188,7 +216,7 @@ class Report4 extends Component {
                   0
                 ]}
                 chartTitle="All event attendees range"
-                y={this.state.yValue}
+                y={this.state.c2Yvalue}
               />
               <p>
                 Total attendees:{" "}
@@ -206,7 +234,7 @@ class Report4 extends Component {
                 ]}
                 eventType="E"
                 chartTitle={"Events for " + this.state.tagInfo[0]}
-                y={this.state.yValue}
+                y={this.state.c1Yvalue}
               />
               <p>
                 Total events held for {this.state.tagInfo[0]}:{" "}
@@ -223,7 +251,7 @@ class Report4 extends Component {
                   0
                 ]}
                 chartTitle={this.state.tagInfo[0] + " event attendees range"}
-                y={this.state.yValue}
+                y={this.state.c2Yvalue}
               />
               <p>
                 Total attendees for {this.state.tagInfo[0]} events:{" "}
