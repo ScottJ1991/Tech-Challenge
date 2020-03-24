@@ -3,7 +3,7 @@ import axios from "axios";
 import { Form, Button, Col, Row, Card, ListGroup } from "react-bootstrap";
 
 import Attendee from "./attendee";
-import { AWSUrl, gobalSize, gobalOffset } from "./staticVar";
+import { testUrl, gobalSize, gobalOffset } from "./staticVar";
 
 class Report3 extends Component {
   state = {
@@ -19,7 +19,7 @@ class Report3 extends Component {
     e.preventDefault();
 
     axios
-      .get(AWSUrl + "/events/" + this.state.eventID + "/attendees")
+      .get(testUrl + "/events/" + this.state.eventID + "/attendees")
       .then(res => {
         this.setState({ event: res.data });
       })

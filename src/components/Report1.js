@@ -3,7 +3,7 @@ import axios from "axios";
 import { Form, Button, Col, Row, Card, ListGroup } from "react-bootstrap";
 
 import List from "./List";
-import { AWSUrl, gobalOffset, gobalSize } from "./staticVar";
+import { testUrl, gobalOffset, gobalSize } from "./staticVar";
 
 class Report1 extends Component {
   state = {
@@ -28,7 +28,7 @@ class Report1 extends Component {
     } else {
       if (this.state.from !== "" && this.state.to !== "") {
         wholeUrl =
-          AWSUrl +
+        testUrl +
           "/users/" +
           this.state.userId +
           "/events?from=" +
@@ -37,20 +37,20 @@ class Report1 extends Component {
           this.state.to;
       } else if (this.state.from !== "") {
         wholeUrl =
-          AWSUrl +
+        testUrl +
           "/users/" +
           this.state.userId +
           "/events?from=" +
           this.state.from;
       } else if (this.state.to !== "") {
         wholeUrl =
-          AWSUrl +
+        testUrl +
           "/users/" +
           this.state.userId +
           "/events?to=" +
           this.state.to;
       } else {
-        wholeUrl = AWSUrl + "/users/" + this.state.userId + "/events";
+        wholeUrl = testUrl + "/users/" + this.state.userId + "/events";
       }
 
       axios
@@ -123,7 +123,7 @@ class Report1 extends Component {
               </Form.Group>
             </Form.Row>
           </Form>
-
+          
           <Card>
             <ListGroup variant="flush">
               {this.state.events.map(event => (
